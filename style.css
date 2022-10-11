@@ -36,7 +36,7 @@ body {
 #pageHeader {
     color: white;
     background-color: var(--primary);
-    padding: var(--mainDistance) calc(var(--mainDistance) * 2);
+    padding: calc(var(--mainDistance) / 2);
 }
 
 #headerTitle {
@@ -60,11 +60,11 @@ body {
 main {
     font-size: 1.2rem;
     background-color: white;
-    padding: 0 var(--mainDistance);
+    padding: 0 calc(var(--mainDistance) / 2);
 }
 
 .mainContent {
-    padding: 0 var(--mainDistance);
+    padding: 0 calc(var(--mainDistance) / 2);;
     border: solid thin var(--primary);
     border-radius: calc(var(--mainDistance) / 2);
     margin: var(--mainDistance) 0;
@@ -95,7 +95,7 @@ h2 {
 
 .demoBoxHeader {
     background-color: var(--primary);
-    padding: calc(var(--mainDistance) / 2) var(--mainDistance);
+    padding: calc(var(--mainDistance) / 2);
 }
 
 .artTitle {
@@ -109,7 +109,13 @@ h2 {
 }
 
 .sandboxContainer {
-    padding: calc(var(--mainDistance) / 2) var(--mainDistance);
+    padding: calc(var(--mainDistance) / 2);
+}
+
+
+/* Video-Styling ########################################################### */
+#bsplVOne {
+    width: clamp(15rem, 100%, 100%);
 }
 
 

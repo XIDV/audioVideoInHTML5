@@ -3,12 +3,12 @@
 
 <!--                                                      head-section -->
     <head>
-        <title><!-- INSERT TITLE HERE --></title>
+        <title>Audio und Video mit HTML5</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Sebastian Peschl">
-        <!-- <meta name="description" content=""> -->
+        <meta name="description" content="Vorstellung / Demonstration der HTML5-Elemente audio und video.">
         <meta name="generator" content="Visual Studio Code">
 
         <link rel="stylesheet" href="style.css">
@@ -19,8 +19,8 @@
     <body>
         <div id="pageWrapper">
             <header id="pageHeader">
-                <div id="headerTitle"><!-- INSERT HEADERTITLE HERE --></div>
-                <div id="headerSubtitle"><!-- INSERT SUBTITLE HERE --></div>
+                <div id="headerTitle">Audio und Video mit HTML5</div>
+                <div id="headerSubtitle">Natives Audio und Video ohne PlugIns</div>
             </header>
 
             <!-- <nav id="mainNav"></nav> -->
@@ -39,16 +39,18 @@
                     </div>
                 </section>
 
-                <section class="mainContent">
+                <section class="mainContent" id="bsplAudio">
                     <header class="sectionHeader">
-                        <h2 class="sectionTitle"><!-- INSERT SECTIONTITLE HERE --></h2>
-                        <div class="sectionSubtitle"><!-- INSERT SUBTITLE HERE --></div>
+                        <h2 class="sectionTitle">Das Element <code>audio</code></h2>
+                        <div class="sectionSubtitle">Native Wiedergabe von Audio in HTML5</div>
                     </header>
                     <div class="sectionContentText">
                         <p>
                             <!-- INSERT CONTENT HERE -->
                         </p>
                     </div>
+                    
+                    
                     <article class="demoBox">
                         <header class="demoBoxHeader">
                             <h3 class="artTitle"><!-- INSERT ARTICLETITLE HERE --></h3>
@@ -56,7 +58,32 @@
                         </header>
                         <div class="sandboxContainer">
 
-                            <!-- INSERT STUFF FOR DEMONSTRATION HERE -->
+                            <audio src="" controls></audio>
+                        
+                        </div>
+                    </article>
+                </section>
+
+                <section class="mainContent" id="bsplVideo">
+                    <header class="sectionHeader">
+                        <h2 class="sectionTitle">Das Element <code>video</code></h2>
+                        <div class="sectionSubtitle">Native Wiedergabe von Video in HTML5</div>
+                    </header>
+                    <div class="sectionContentText">
+                        <p>
+                            <!-- INSERT CONTENT HERE -->
+                        </p>
+                    </div>
+                    
+                    
+                    <article class="demoBox">
+                        <header class="demoBoxHeader">
+                            <h3 class="artTitle"><!-- INSERT ARTICLETITLE HERE --></h3>
+                            <div class="artSubtitle"><!-- INSERT SUBTITLE HERE --></div>
+                        </header>
+                        <div class="sandboxContainer">
+
+                            <video id="bsplVOne" src="" controls></video>
                         
                         </div>
                     </article>

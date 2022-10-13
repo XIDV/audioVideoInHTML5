@@ -86,6 +86,52 @@ h2 {
     font: small-caps clamp(1.25em, 5vw, 2.5em) sans-serif;
 }
 
+.sectionContentText table {
+    width: 100%;
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    border-spacing: 0;
+    margin: 0 auto;
+}
+
+.sectionContentText tr {
+    width: 100%;
+}
+
+.sectionContentText tr:nth-child(even) td {
+    border-top: solid .25rem var(--primary);
+    border-bottom: solid .25rem var(--primary);
+}
+
+.sectionContentText th,
+.sectionContentText td {
+    width: 20%;
+    text-align: center;
+    padding: .5rem;
+}
+
+.sectionContentText th {
+    color: white;
+    background-color: var(--primary);
+}
+
+.tdMark1 {
+    background-color: lightcyan;
+}
+
+.tdMark2 {
+    background-color: lightgoldenrodyellow;
+}
+
+.tdMark3 {
+    background-color: lightpink;
+}
+
+.importantInfo {
+    font-size: 1.5rem;
+    background-color: beige;
+    padding: .5rem;
+}
+
 .demoBox {
     border: solid thin var(--primary);
     border-radius: calc(var(--mainDistance) / 2);

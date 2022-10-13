@@ -29,12 +29,80 @@
                 
                 <section class="mainContent" id="primaryContent">
                     <header class="sectionHeader">
-                        <h1 class="sectionTitle"><!-- INSERT SECTIONTITLE HERE --></h1>
-                        <div class="sectionSubtitle"><!-- INSERT SUBTITLE HERE --></div>
+                        <h1 class="sectionTitle">Container und Codecs</h1>
+                        <div class="sectionSubtitle">Behälter und Formate zur nativen Einbindung von Audio und Video</div>
                     </header>
                     <div class="sectionContentText">
+                        <h2>Container</h2>
                         <p>
-                            <!-- INSERT CONTENT HERE -->
+                            Container sind Behälter welche die eigentlichen Multimedia-Informationen beinhalten. Neben den Audio- bzw. Videostrams beherbergen diese Verbunddokumente auch Metadaten wie Untertitel, Menüstrukturen usw. <br>
+                            Folgende Container sind verfügbar:
+                        </p>
+                        <ul>
+                            <li>MP4</li>
+                            <li>OGG</li>
+                            <li>WebM</li>
+                        </ul>
+                        <h2>Codecs</h2>
+                        <p>
+                            Diese sind das Codierungsformat mit denen Audio- und Videodaten codiert wurden. <br>
+                            Die folgenden Codecs sind verfügbar:
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Für Audio</th>
+                                    <th>Für Video</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AAC</td>
+                                    <td>H.265</td>
+                                </tr>
+                                <tr>
+                                    <td>Vorbis</td>
+                                    <td>Theora</td>
+                                </tr>
+                                <tr>
+                                    <td>MP3</td>
+                                    <td>VP8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h2>Codec-Kombinationen</h2>
+                        <p>
+                            Die Codecs für Audio und Video werden in verschiedenen Kombinationen (Container) zusammengepackt. Dementsprechend differiert dessen Verfügbarkeit in unterschiedlichen Browsern. <br>
+                            Die Kombinationen sind:
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Video-Codec</th>
+                                    <th>Audio-Codec</th>
+                                    <th>Container</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tdMark1">H.264</td>
+                                    <td class="tdMark2">AAC <strong>oder</strong> MP3</td>
+                                    <td class="tdMark3">MP4</td>
+                                </tr>
+                                <tr>
+                                    <td class="tdMark1">Theora</td>
+                                    <td class="tdMark2">Vorbis</td>
+                                    <td class="tdMark3">OGG (Audio mit .ogg <strong>oder</strong> .oga, Video mit .ogv als Dateiendung.)</td>
+                                </tr>
+                                <tr>
+                                    <td class="tdMark1">VP8</td>
+                                    <td class="tdMark2">Vorbis</td>
+                                    <td class="tdMark3">WebM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="importantInfo">
+                            Ausgehend von der gegenwärtigen Verfügbarkeit der genannten Codec-Kombinationen bei den unterschiedlichen Browsern ist es sinnvoll die Kobinationen <strong>H.265/AAC/MP4</strong> und <strong>Theora/Vorbis/OGG</strong> gleichzeitig zu implementieren!
                         </p>
                     </div>
                 </section>

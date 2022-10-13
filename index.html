@@ -121,12 +121,16 @@
                     
                     <article class="demoBox">
                         <header class="demoBoxHeader">
-                            <h3 class="artTitle"><!-- INSERT ARTICLETITLE HERE --></h3>
-                            <div class="artSubtitle"><!-- INSERT SUBTITLE HERE --></div>
+                            <h3 class="artTitle">Beispiel 1</h3>
+                            <div class="artSubtitle">Einbindung von Audio mit den Elementen <code>audio</code> und <code>source</code></div>
                         </header>
                         <div class="sandboxContainer">
 
-                            <audio src="" controls></audio>
+                            <audio controls>
+                                <source src="media/ScottHolmes-DrivenToSuccess.ogg" type="audio/ogg">
+                                <source src="media/ScottHolmes-DrivenToSuccess.mp3" type="audio/mpeg">
+                                <a href="media/ScottHolmes-DrivenToSuccess.mp3" download="yes">Download "Driven To Success" by Scott Holmes</a>
+                            </audio>
                         
                         </div>
                     </article>

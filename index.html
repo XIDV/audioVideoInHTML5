@@ -113,8 +113,8 @@
                         <div class="sectionSubtitle">Native Wiedergabe von Audio in HTML5</div>
                     </header>
                     <div class="sectionContentText">
-                        <p>
-                            <!-- INSERT CONTENT HERE -->
+                        <p class="importantInfo">
+                            Lassen Sie sich den Quellcode der Seite mittels der Entwicklungswerkzeuge des Browsers anzeigen um die Beispiele nachvollziehen zu können.
                         </p>
                     </div>
                     
@@ -132,6 +132,27 @@
                                 <a href="media/ScottHolmes-DrivenToSuccess.mp3" download="media/ScottHolmes-DrivenToSuccess.mp3">Download "Driven To Success" by Scott Holmes</a>
                             </audio>
                         
+                            <div class="elementInfo">
+                                <details>
+                                    <summary>
+                                        Das <code>audio</code>-Element im Zusammenspiel mit <code>source</code>
+                                    </summary>
+                                    <p>
+                                        <code>audio</code> bildet das Container-Elment. Durch Verwendung des Attributs <code>controls</code> werden die Steuerelemente (z. B. Playbutton, Lautstärkereler, usw.) auf der Webeite eingeblendet. <br>
+                                        Die Darstellung der Steuerelemente kann zwischen den einzelnen Browsern unterschiedlich sein.
+                                    </p>
+                                    <p>
+                                        Mit dem <code>source</code>-Element wird die Mediendatei mit dem HTML-Dokument verlinkt. Es ist, wie das <code>img</code>-Element mit dem Attribut <code>src</code> ausgestattet mit dem der Pfad zur Mediendatei definiert wird.
+                                    </p>
+                                    <p>
+                                        Hier werden gleich zwei <code>source</code>-Elemente innerhalb von <code>audio</code> verwendet. Eines verweist mittels <code>src</code> auf deine ogg-Datei, das andere auf eine Datei vom Typ mp3. <br>
+                                        Der Browser wählt automatisch die Datai (den Container) welchen er verarbeiten/darstellen kann.
+                                    </p>
+                                    <p>
+                                        Als zusätzliche Fallback befindet sich ebenfalls innerhalb von <code>audio</code> ein Link-Element zu einer der Mediendateien. Dieser (Download-)Link wird jedoch nur dann angezeigt, wenn der Brwoser mit keinem der definierten Container etwas anfangen kann.
+                                    </p>
+                                </details>
+                            </div>
                         </div>
                     </article>
                 </section>
@@ -142,8 +163,8 @@
                         <div class="sectionSubtitle">Native Wiedergabe von Video in HTML5</div>
                     </header>
                     <div class="sectionContentText">
-                        <p>
-                            <!-- INSERT CONTENT HERE -->
+                        <p class="importantInfo">
+                            Lassen Sie sich den Quellcode der Seite mittels der Entwicklungswerkzeuge des Browsers anzeigen um die Beispiele nachvollziehen zu können.
                         </p>
                     </div>
                     

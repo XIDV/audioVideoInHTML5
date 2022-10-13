@@ -129,7 +129,7 @@
                             <audio controls>
                                 <source src="media/ScottHolmes-DrivenToSuccess.ogg" type="audio/ogg">
                                 <source src="media/ScottHolmes-DrivenToSuccess.mp3" type="audio/mpeg">
-                                <a href="media/ScottHolmes-DrivenToSuccess.mp3" download="yes">Download "Driven To Success" by Scott Holmes</a>
+                                <a href="media/ScottHolmes-DrivenToSuccess.mp3" download="media/ScottHolmes-DrivenToSuccess.mp3">Download "Driven To Success" by Scott Holmes</a>
                             </audio>
                         
                         </div>
@@ -155,7 +155,12 @@
                         </header>
                         <div class="sandboxContainer">
 
-                            <video id="bsplVOne" src="" controls></video>
+                            <video id="bsplVOne" controls>
+                                <source media="all and (min-width: 680px)" src="media/Winter_default.mp4" type="video/mp4">
+                                <source media="all and (min-width: 680px)" src="media/Winter_default.ogv" type="video/ogg">
+                                <source media="all and (min-width: 320px)" src="media/Winter_low.mp4" type="video/mp4">
+                                <source media="all and (min-width: 320px)" src="media/Winter_low.ogv" type="video/ogg">
+                            </video>
                         
                         </div>
                     </article>

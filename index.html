@@ -133,7 +133,7 @@
                             </audio>
                         
                             <div class="elementInfo">
-                                <details>
+                                <details class="importantInfo">
                                     <summary>
                                         Das <code>audio</code>-Element im Zusammenspiel mit <code>source</code>
                                     </summary>
@@ -171,8 +171,8 @@
                     
                     <article class="demoBox">
                         <header class="demoBoxHeader">
-                            <h3 class="artTitle"><!-- INSERT ARTICLETITLE HERE --></h3>
-                            <div class="artSubtitle"><!-- INSERT SUBTITLE HERE --></div>
+                            <h3 class="artTitle">Beispiel 2</h3>
+                            <div class="artSubtitle">Natives (und medienabhängiges) Einbinden von Videos</div>
                         </header>
                         <div class="sandboxContainer">
 
@@ -182,6 +182,27 @@
                                 <source media="all and (min-width: 320px)" src="media/Winter_low.mp4" type="video/mp4">
                                 <source media="all and (min-width: 320px)" src="media/Winter_low.ogv" type="video/ogg">
                             </video>
+
+                            <div class="elementInfo">
+                                <details class="importantInfo">
+                                    <summary>
+                                        Das <code>video</code>-Element im Zusammenspiel mit <code>source</code> in Kombinatione mit Mediaqueries.
+                                    </summary>
+                                    <p>
+                                        Hier übernimmt das <code>video</code>-Element die Rolle als Container. Wie bei <code>audio</code> werden durch das <code>controls</code>-Attribut die üblichen Steuerelemente angezeigt.
+                                    </p>
+                                    <p>
+                                        Mittels <code>source</code>-Elemente werden die Mediendateien mit dem HTML-Dokument verlinkt.
+                                    </p>
+                                    <p>
+                                        Neben der Implementierung von zwei unterschiedlichen Container-Varianten (mp4 und ogv) findet zudem eine Differenzierung nach verwerwendetem Medium statt. <br>
+                                        Bis zu einer Medienbreite von 680px wird die "low"-Variante der jeweiligen Mediendatei verwendet. Für alle Medien über 680px Breite kommt die "default"-Variante zum Einsatz.
+                                    </p>
+                                    <p>
+                                        Durch die Verwendung unterschiedlicher Auflösungen bei Bildern und Videos kann Bandbreite eingespart werden.
+                                    </p>
+                                </details>
+                            </div>
                         
                         </div>
                     </article>

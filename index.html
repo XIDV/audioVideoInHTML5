@@ -172,7 +172,19 @@
 
                             <div class="controlContainer">
                                 <button type="button" id="bspl1bPlayPause">Play</button>
-                                <input type="text" id="showTimeDuration" disabled>
+                                <input type="text" id="showTimeDuration" class="infoOutput" disabled>
+                                <label for="volMarks">Volume</label>
+                                <input type="range" id="setVolume" list="volMarks">
+                                <datalist id="volMarks">
+                                    <option value="0"></option>
+                                    <option value="25"></option>
+                                    <option value="50"></option>
+                                    <option value="75"></option>
+                                    <option value="100"></option>
+                                </datalist>
+                                <label for="durationSlider">Duration</label>
+                                <input type="range" id="durationSlider" min="0" value="0">
+                                <input type="text" id="durationInfo" class="infoOutput"disabled>
                             </div>
                         
                             <div class="elementInfo">

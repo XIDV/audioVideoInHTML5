@@ -169,6 +169,13 @@ code {
     font-weight: bold;
 }
 
+
+/* Custom-Audio-Controls */
+.infoOutput {
+    width: 3rem;
+}
+
+
 /* Video-Styling ########################################################### */
 .bsplV {
     width: clamp(15rem, 100%, 100%);

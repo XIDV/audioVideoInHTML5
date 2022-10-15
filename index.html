@@ -11,6 +11,7 @@
         <meta name="description" content="Vorstellung / Demonstration der HTML5-Elemente audio und video.">
         <meta name="generator" content="Visual Studio Code">
 
+        <link rel="shortcut icon" href="media/XIDV_Logo_final.svg" type="image/x-icon">
         <link rel="stylesheet" href="style.css">
 
     </head>
@@ -119,7 +120,7 @@
                     </div>
                     
                     
-                    <article class="demoBox">
+                    <article class="demoBox" id="bspl1A">
                         <header class="demoBoxHeader">
                             <h3 class="artTitle">Beispiel 1</h3>
                             <div class="artSubtitle">Einbindung von Audio mit den Elementen <code>audio</code> und <code>source</code></div>
@@ -155,6 +156,38 @@
                             </div>
                         </div>
                     </article>
+
+                    <article class="demoBox" id="bspl1B">
+                        <header class="demoBoxHeader">
+                            <h3 class="artTitle">Beispiel 1b</h3>
+                            <div class="artSubtitle">Einbindung von Audio mit den Elementen <code>audio</code> und <code>source</code></div>
+                        </header>
+                        <div class="sandboxContainer">
+
+                            <audio id="bspl1bAudio">
+                                <source src="media/ScottHolmes-DrivenToSuccess.ogg" type="audio/ogg">
+                                <source src="media/ScottHolmes-DrivenToSuccess.mp3" type="audio/mpeg">
+                                <a href="media/ScottHolmes-DrivenToSuccess.mp3" download="media/ScottHolmes-DrivenToSuccess.mp3">Download "Driven To Success" by Scott Holmes</a>
+                            </audio>
+
+                            <div class="controlContainer">
+                                <button type="button" id="bspl1bPlayPause">Play</button>
+                                <input type="text" id="showTimeDuration" disabled>
+                            </div>
+                        
+                            <div class="elementInfo">
+                                <details class="importantInfo">
+                                    <summary>
+                                        
+                                    </summary>
+                                    <p>
+                                        
+                                    </p>
+                                </details>
+                            </div>
+                        </div>
+                    </article>
+
                 </section>
 
                 <section class="mainContent" id="bsplVideo">

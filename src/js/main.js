@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
     // EL f. Anzeige von currentTime und duration, sowie setDurationSlider
     bspl1bAudio.addEventListener('timeupdate', e => {
         const mediaCurrentTime = Math.round(e.target.currentTime);
-        showTimeDuration.value = `${mediaCurrentTime} / ${Math.round(e.target.duration)}`;
+        showTimeDuration.textContent = `${mediaCurrentTime} / ${Math.round(e.target.duration)}`;
 
         if(!isOverDurSlider) {
             setDurationSlider.value = mediaCurrentTime;
@@ -25,18 +25,22 @@ document.addEventListener('DOMContentLoaded', dcl => {
     // EL f. Initiale Anzeige von showTimeDuration
     bspl1bAudio.addEventListener('canplaythrough', e => {
         const mediaDuration = Math.round(e.target.duration);
-        showTimeDuration.value = `0 / ${mediaDuration}`;
+        showTimeDuration.textContent = `0 / ${mediaDuration}`;
         setDurationSlider.setAttribute('max', `${mediaDuration}`);
+        e.target.volume = .5;
     });
     
     // EL f. Start/Pause-Button
     document.querySelector('#bspl1bPlayPause').addEventListener('click', e => {
+        const playPauseImg = e.target.querySelector('img');
         if(bspl1bAudio.paused) {
             bspl1bAudio.play();
-            e.target.textContent = 'Pause';
+            playPauseImg.setAttribute('src', 'media/cuiIMG/pause-solid.svg');
+            playPauseImg.setAttribute('alt', 'Pause Audio');
         } else {
             bspl1bAudio.pause();
-            e.target.textContent = 'Play';
+            playPauseImg.setAttribute('src', 'media/cuiIMG/play-solid.svg');
+            playPauseImg.setAttribute('alt', 'Play Audio');
         }
     });
 

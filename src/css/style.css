@@ -1,3 +1,5 @@
+@import url('customAudioUI.css');
+
 :root {
     /* Some colors */
     --primary: #16506E;
@@ -171,9 +173,7 @@ code {
 
 
 /* Custom-Audio-Controls */
-.infoOutput {
-    width: 3rem;
-}
+/* view additional file */
 
 
 /* Video-Styling ########################################################### */

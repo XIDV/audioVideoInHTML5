@@ -170,11 +170,11 @@
                                 <a href="media/ScottHolmes-DrivenToSuccess.mp3" download="media/ScottHolmes-DrivenToSuccess.mp3">Download "Driven To Success" by Scott Holmes</a>
                             </audio>
 
-                            <div class="controlContainer">
-                                <button type="button" id="bspl1bPlayPause">Play</button>
-                                <input type="text" id="showTimeDuration" class="infoOutput" disabled>
-                                <label for="volMarks">Volume</label>
-                                <input type="range" id="setVolume" list="volMarks">
+                            <!-- <div class="controlContainer">
+                                <button type="button" id="bspl1bPlayPause" class="customAUIEl"><span class="cUIText">Play</span></button>
+                                <input type="text" id="showTimeDuration" class="customAUIEl infoOutput" disabled>
+                                <label class="customAUIEl" for="volMarks">Volume</label>
+                                <input type="range" id="setVolume" class="customAUIEl" list="volMarks">
                                 <datalist id="volMarks">
                                     <option value="0"></option>
                                     <option value="25"></option>
@@ -182,9 +182,40 @@
                                     <option value="75"></option>
                                     <option value="100"></option>
                                 </datalist>
-                                <label for="durationSlider">Duration</label>
-                                <input type="range" id="durationSlider" min="0" value="0">
-                                <input type="text" id="durationInfo" class="infoOutput"disabled>
+                                <label class="customAUIEl" for="durationSlider">Duration</label>
+                                <input type="range" id="durationSlider" class="customAUIEl" min="0" value="0">
+                                <input type="text" id="durationInfo" class="customAUIEl infoOutput" disabled>
+                            </div> -->
+
+                            <div class="controlContainer">
+                                <div class="cButton customAUIEl">
+                                    <div class="cAUIEtext">
+                                        Play
+                                    </div>
+                                </div>
+
+                                <div class="cInfoOutput customAUIEl"><div class="cAUIEtext">t / d</div></div>
+
+                                <div class="cSliderContainer">
+                                    <input type="range" id="cdSlider" class="customAUIEl cdSlider" min="0" value="0">
+                                </div>
+
+                                <div class="cButton customAUIEl">
+                                    <div class="cAUIEtext">
+                                        Mute
+                                    </div>
+                                </div>
+
+                                <div class="cSliderContainer">
+                                    <input type="range" id="setVolume" class="customAUIEl cdSlider" list="volMarks">
+                                    <datalist id="volMarks">
+                                        <option value="0"></option>
+                                        <option value="25"></option>
+                                        <option value="50"></option>
+                                        <option value="75"></option>
+                                        <option value="100"></option>
+                                    </datalist>
+                                </div>
                             </div>
                         
                             <div class="elementInfo">

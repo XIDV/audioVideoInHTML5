@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded', dcl => {
     const setDurationSlider = document.querySelector('#durationSlider');
     // Hilfsvariablen
     let isOverDurSlider = false;
+    let showDuration = 0;
 
     // EL f. Anzeige von currentTime und duration, sowie setDurationSlider
     bspl1bAudio.addEventListener('timeupdate', e => {
         const mediaCurrentTime = Math.round(e.target.currentTime);
-        showTimeDuration.textContent = `${mediaCurrentTime} / ${Math.round(e.target.duration)}`;
+        showTimeDuration.textContent = `${getTimeDuration(mediaCurrentTime)} / ${showDuration}`;
 
         if(!isOverDurSlider) {
             setDurationSlider.value = mediaCurrentTime;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
         showTimeDuration.textContent = `0 / ${mediaDuration}`;
         setDurationSlider.setAttribute('max', `${mediaDuration}`);
         e.target.volume = .5;
+        showDuration = getTimeDuration(Math.round(e.target.duration));
     });
     
     // EL f. Start/Pause-Button
@@ -63,3 +65,9 @@ document.addEventListener('DOMContentLoaded', dcl => {
     });
 
 });
+
+
+function getTimeDuration(trackSeconds) {
+    let m = Number((Math.abs(trackSeconds / 60) * 100).toPrecision(4));
+    return Math.round(m) / 100 * Math.sign(trackSeconds / 60);
+}

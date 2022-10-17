@@ -24,6 +24,11 @@
     text-align: center;
 }
 
+.cAUIEimg {
+    width: 1rem;
+    height: 1rem;
+}
+
 .cSliderContainer {
     display: inherit;
     justify-content: center;

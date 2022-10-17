@@ -64,6 +64,21 @@ document.addEventListener('DOMContentLoaded', dcl => {
         bspl1bAudio.currentTime = parseFloat(e.target.value);
     });
 
+    // EL f. mute-Button
+    document.querySelector('#cMute').addEventListener('click', e => {
+        const isMuted = e.target.dataset.ismuted;
+        const isMutedImg = e.target.querySelector('img');
+        if(isMuted == 'false') {
+            e.target.dataset.ismuted = 'true';
+            isMutedImg.setAttribute('src', 'media/cuiIMG/volume-high-solid.svg');
+            bspl1bAudio.muted = true;
+        } else {
+            e.target.dataset.ismuted = 'false';
+            isMutedImg.setAttribute('src', 'media/cuiIMG/volume-xmark-solid.svg');
+            bspl1bAudio.muted = false;
+        }
+    });
+
 });
 
 

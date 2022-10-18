@@ -1,19 +1,9 @@
 document.addEventListener('DOMContentLoaded', dcl => {
     console.log('Document is ready ...');
 
-    
-    // Custom-Audio-Controls Konfiguration ####################################
-    // Controls
-    // const bspl1bAudio = document.querySelector('#bspl1bAudio');
-    // const showTimeDuration = document.querySelector('#showTimeDuration');
-    // const setVolumeSlider = document.querySelector('#setVolume');
-    // const setDurationSlider = document.querySelector('#durationSlider');
-    // // Hilfsvariablen
-    // let isOverDurSlider = false;
-    // let showDuration = 0;
-
-    // Creating an custom-audio-player-Object (cap)
+    // Creating an custom-audio-player-Object (cap) ###########################
     const cap = {
+        // Definition der Eigenschaften von cap +++++++++++++++++++++++++++++++
         audioElement: document.querySelector('#bspl1bAudio'),
         mediaDurationTime: '',
         nowInputCDslider: false,
@@ -24,6 +14,10 @@ document.addEventListener('DOMContentLoaded', dcl => {
         muteButton: document.querySelector('#cMute'),
         volSlider: document.querySelector('#setVolume'),
 
+        
+        // Methoden von cap +++++++++++++++++++++++++++++++++++++++++++++++++++
+        
+        // Verarbeitung und Anpassung der Schaltflächen -----------------------
         playPause() {
             if(this.audioElement.paused) {
                 this.audioElement.play();
@@ -66,6 +60,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
             
         },
 
+        // Initialiserung und Anpassung während der Wiedergabe ----------------
         initalizeUI() {
             const mediaDuration = this.audioElement.duration;
             this.mediaDurationTime = getTimeDuration(mediaDuration);
@@ -81,6 +76,8 @@ document.addEventListener('DOMContentLoaded', dcl => {
             }
         },
 
+        // Verarbeitung d. Slider-Inputs --------------------------------------
+        // f. cdSlider
         lockCDslider() {
             this.nowInputCDslider = true; 
         },
@@ -94,8 +91,14 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.displayTD.textContent = `${getTimeDuration(this.cdSlider.value)} / ${this.mediaDurationTime}`;
         }
 
+        // f. volSlider
+        //                              implement volSlider-Methodes here
+
+        // ####################################################################
+
     }
 
+    //EL f. cap
     cap.audioElement.addEventListener('loadedmetadata', e => cap.initalizeUI());
     cap.audioElement.addEventListener('timeupdate', e => cap.updateUI());
     
@@ -105,80 +108,6 @@ document.addEventListener('DOMContentLoaded', dcl => {
     cap.cdSlider.addEventListener('mousedown', e => cap.lockCDslider());
     cap.cdSlider.addEventListener('input', e => cap.setDisplayTime());
     cap.cdSlider.addEventListener('mouseup', e => cap.setTime());
-    
-
-
-    // // 
-    // bspl1bAudio.addEventListener('loadedmetadata', e => {
-    //     console.log('Metadata loaded');
-    // });
-
-    // // EL f. Anzeige von currentTime und duration, sowie setDurationSlider
-    // bspl1bAudio.addEventListener('timeupdate', e => {
-    //     const mediaCurrentTime = Math.round(e.target.currentTime);
-    //     showTimeDuration.textContent = `${getTimeDuration(mediaCurrentTime)} / ${showDuration}`;
-
-    //     if(!isOverDurSlider) {
-    //         setDurationSlider.value = mediaCurrentTime;
-    //     }
-
-    // });
-
-    // // EL f. Initiale Anzeige von showTimeDuration
-    // bspl1bAudio.addEventListener('canplaythrough', e => {
-    //     const mediaDuration = Math.round(e.target.duration);
-    //     showTimeDuration.textContent = `0 / ${mediaDuration}`;
-    //     setDurationSlider.setAttribute('max', `${mediaDuration}`);
-    //     e.target.volume = .5;
-    //     showDuration = getTimeDuration(Math.round(e.target.duration));
-    // });
-    
-    // // EL f. Start/Pause-Button
-    // document.querySelector('#bspl1bPlayPause').addEventListener('click', e => {
-    //     const playPauseImg = e.target.querySelector('img');
-    //     if(bspl1bAudio.paused) {
-    //         bspl1bAudio.play();
-    //         playPauseImg.setAttribute('src', 'media/cuiIMG/pause-solid.svg');
-    //         playPauseImg.setAttribute('alt', 'Pause Audio');
-    //     } else {
-    //         bspl1bAudio.pause();
-    //         playPauseImg.setAttribute('src', 'media/cuiIMG/play-solid.svg');
-    //         playPauseImg.setAttribute('alt', 'Play Audio');
-    //     }
-    // });
-
-    // // EL f. setVolumeSlider
-    // setVolumeSlider.addEventListener('input', e => {
-    //     bspl1bAudio.volume = parseFloat(e.target.value) / 100;
-    // });
-
-    // // EL f. Steuerung des Wertes von isOverSlider-Hilfsvariablen
-    // setDurationSlider.addEventListener('mouseover', e => {
-    //     isOverDurSlider = true;
-    // });
-    // setDurationSlider.addEventListener('mouseleave', e => {
-    //     isOverDurSlider = false;
-    // });
-
-    // // EL f. Wertzuweisung von currentTime von bspl1bAudio i. A. von setDurationSlider value
-    // setDurationSlider.addEventListener('mouseup', e => {
-    //     bspl1bAudio.currentTime = parseFloat(e.target.value);
-    // });
-
-    // // EL f. mute-Button
-    // document.querySelector('#cMute').addEventListener('click', e => {
-    //     const isMuted = e.target.dataset.ismuted;
-    //     const isMutedImg = e.target.querySelector('img');
-    //     if(isMuted == 'false') {
-    //         e.target.dataset.ismuted = 'true';
-    //         isMutedImg.setAttribute('src', 'media/cuiIMG/volume-high-solid.svg');
-    //         bspl1bAudio.muted = true;
-    //     } else {
-    //         e.target.dataset.ismuted = 'false';
-    //         isMutedImg.setAttribute('src', 'media/cuiIMG/volume-xmark-solid.svg');
-    //         bspl1bAudio.muted = false;
-    //     }
-    // });
 
 });
 

@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', dcl => {
         setMute() {
             if(this.audioElement.muted) {
                 this.audioElement.muted = false;
+                if(this.audioElement.volume == 0) {
+                    this.audioElement.volume = .25;
+                    this.volSlider.value = .25;
+                }
                 this.changeButton('muteButton', 'active');
             } else {
                 this.audioElement.muted = true;
@@ -66,6 +70,8 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.mediaDurationTime = getTimeDuration(mediaDuration);
             this.displayTD.textContent = `0 / ${this.mediaDurationTime}`;
             this.cdSlider.setAttribute('max', mediaDuration);
+            console.log(this.volSlider.value);
+            this.audioElement.volume = this.volSlider.value / 100;
         },
 
         updateUI() {
@@ -89,10 +95,18 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
         setDisplayTime() {
             this.displayTD.textContent = `${getTimeDuration(this.cdSlider.value)} / ${this.mediaDurationTime}`;
-        }
+        },
 
         // f. volSlider
-        //                              implement volSlider-Methodes here
+        setVolume() {
+            const currentVol = this.volSlider.value;
+            this.audioElement.volume = currentVol;
+            if(currentVol == 0 && !this.audioElement.muted) {
+                this.setMute();
+            } else if(currentVol > 0 && this.audioElement.muted) {
+                this.setMute();
+            }
+        }
 
         // ####################################################################
 
@@ -108,6 +122,8 @@ document.addEventListener('DOMContentLoaded', dcl => {
     cap.cdSlider.addEventListener('mousedown', e => cap.lockCDslider());
     cap.cdSlider.addEventListener('input', e => cap.setDisplayTime());
     cap.cdSlider.addEventListener('mouseup', e => cap.setTime());
+
+    cap.volSlider.addEventListener('input', e => cap.setVolume());
 
 });
 

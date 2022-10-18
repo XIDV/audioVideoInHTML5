@@ -57,15 +57,23 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
         updateUI() {
             const mediaTime = this.audioElement.currentTime;
-            this.displayTD.textContent = `${getTimeDuration(mediaTime)} / ${this.mediaDurationTime}`;
             if(!this.nowInputCDslider) {
+                this.displayTD.textContent = `${getTimeDuration(mediaTime)} / ${this.mediaDurationTime}`;
                 this.cdSlider.value = mediaTime;
             }
         },
 
-        inputCDslider() {
-            this.nowInputCDslider = true;
+        lockCDslider() {
+            this.nowInputCDslider = true; 
+        },
+
+        setTime() {
             this.audioElement.currentTime = parseFloat(this.cdSlider.value);
+            this.nowInputCDslider = false;
+        },
+
+        setDisplayTime() {
+            this.displayTD.textContent = `${getTimeDuration(this.cdSlider.value)} / ${this.mediaDurationTime}`;
         },
 
         // Das muss einfacher gehen ....
@@ -93,10 +101,14 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
     cap.audioElement.addEventListener('loadedmetadata', e => cap.initalizeUI());
     cap.audioElement.addEventListener('timeupdate', e => cap.updateUI());
+    
     cap.ppButton.addEventListener('click', e => cap.playPause());
-    cap.cdSlider.addEventListener('input', e => cap.inputCDslider());
-    cap.cdSlider.addEventListener('mouseup', e => cap.nowInputCDslider = false);
     cap.muteButton.addEventListener('click', e => cap.setMute());
+    
+    cap.cdSlider.addEventListener('mousedown', e => cap.lockCDslider());
+    cap.cdSlider.addEventListener('input', e => cap.setDisplayTime());
+    cap.cdSlider.addEventListener('mouseup', e => cap.setTime());
+    
 
 
     // // 

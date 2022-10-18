@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', dcl => {
     let isOverDurSlider = false;
     let showDuration = 0;
 
+    // 
+
+
     // EL f. Anzeige von currentTime und duration, sowie setDurationSlider
     bspl1bAudio.addEventListener('timeupdate', e => {
         const mediaCurrentTime = Math.round(e.target.currentTime);
@@ -83,6 +86,8 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
 
 function getTimeDuration(trackSeconds) {
-    let m = Number((Math.abs(trackSeconds / 60) * 100).toPrecision(4));
-    return Math.round(m) / 100 * Math.sign(trackSeconds / 60);
+    const minutes = Math.floor(trackSeconds / 60);
+    const seconds = Math.floor(trackSeconds % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${minutes}:${returnedSeconds}`;
 }

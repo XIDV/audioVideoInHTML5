@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
     // Creating an custom-audio-player-Object (cap)
     const cap = {
         audioElement: document.querySelector('#bspl1bAudio'),
+        mediaDurationTime: '',
         
         ppButton: document.querySelector('#bspl1bPlayPause'),
         displayTD: document.querySelector('#showTimeDuration'),
@@ -34,9 +35,18 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.changeButton('ppButton', state);
         },
 
-        updateDisplayTD() {
-            console.log('Metadata loaded');
-            //                                      implement update of displayTD here
+        initalizeUI() {
+            const mediaDuration = this.audioElement.duration;
+            this.mediaDurationTime = getTimeDuration(mediaDuration);
+            this.displayTD.textContent = `0 / ${this.mediaDurationTime}`;
+            this.cdSlider.setAttribute('max', mediaDuration);
+        },
+
+        updateUI() {
+            const mediaTime = this.audioElement.currentTime;
+            console.log(mediaTime);
+            this.displayTD.textContent = `${getTimeDuration(mediaTime)} / ${this.mediaDurationTime}`;
+            this.cdSlider.value = mediaTime;
         },
 
         changeButton(name, state) {
@@ -58,7 +68,8 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
     }
 
-    cap.audioElement.addEventListener('loadedmetadata', e => cap.updateDisplayTD());
+    cap.audioElement.addEventListener('loadedmetadata', e => cap.initalizeUI());
+    cap.audioElement.addEventListener('timeupdate', e => cap.updateUI());
     cap.ppButton.addEventListener('click', e => cap.playPause());
 
     // // 

@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
     const cap = {
         audioElement: document.querySelector('#bspl1bAudio'),
         mediaDurationTime: '',
+        nowInputCDslider: false,
         
         ppButton: document.querySelector('#bspl1bPlayPause'),
         displayTD: document.querySelector('#showTimeDuration'),
@@ -35,6 +36,18 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.changeButton('ppButton', state);
         },
 
+        setMute() {
+            let state = 0;
+            if(this.audioElement.muted) {
+                this.audioElement.muted = false;
+                state = 0;
+            } else {
+                this.audioElement.muted = true;
+                state = 1;
+            }
+            this.changeButton('muteButton', state);
+        },
+
         initalizeUI() {
             const mediaDuration = this.audioElement.duration;
             this.mediaDurationTime = getTimeDuration(mediaDuration);
@@ -44,33 +57,47 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
         updateUI() {
             const mediaTime = this.audioElement.currentTime;
-            console.log(mediaTime);
             this.displayTD.textContent = `${getTimeDuration(mediaTime)} / ${this.mediaDurationTime}`;
-            this.cdSlider.value = mediaTime;
+            if(!this.nowInputCDslider) {
+                this.cdSlider.value = mediaTime;
+            }
         },
 
+        inputCDslider() {
+            this.nowInputCDslider = true;
+            this.audioElement.currentTime = parseFloat(this.cdSlider.value);
+        },
+
+        // Das muss einfacher gehen ....
         changeButton(name, state) {
+            console.log(name);
             const buttonImg = this[name].querySelector('img');
             if(name == 'ppButton') {
                 if(state == 0) {
-                    console.log(buttonImg);
                     buttonImg.setAttribute('src', 'media/cuiIMG/pause-solid.svg');
                 } else {
                     buttonImg.setAttribute('src', 'media/cuiIMG/play-solid.svg');
                 }
-            } else if(name == 'mute') {
-                //                                  implement icon-change for mute-button here 
+            } else if(name == 'muteButton') {
+                if(state == 0) {
+                    buttonImg.setAttribute('src', 'media/cuiIMG/volume-xmark-solid.svg');
+                } else {
+                    buttonImg.setAttribute('src', 'media/cuiIMG/volume-high-solid.svg');
+                }
             } else {
                 console.log('Unbekannte Button-Signatur!');
             }
         }
-
 
     }
 
     cap.audioElement.addEventListener('loadedmetadata', e => cap.initalizeUI());
     cap.audioElement.addEventListener('timeupdate', e => cap.updateUI());
     cap.ppButton.addEventListener('click', e => cap.playPause());
+    cap.cdSlider.addEventListener('input', e => cap.inputCDslider());
+    cap.cdSlider.addEventListener('mouseup', e => cap.nowInputCDslider = false);
+    cap.muteButton.addEventListener('click', e => cap.setMute());
+
 
     // // 
     // bspl1bAudio.addEventListener('loadedmetadata', e => {

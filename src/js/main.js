@@ -25,27 +25,45 @@ document.addEventListener('DOMContentLoaded', dcl => {
         volSlider: document.querySelector('#setVolume'),
 
         playPause() {
-            let state = 0;
             if(this.audioElement.paused) {
                 this.audioElement.play();
-                state = 0;
+                this.changeButton('ppButton', 'active');
             } else {
                 this.audioElement.pause();
-                state = 1;
+                this.changeButton('ppButton', 'inactive');
             }
-            this.changeButton('ppButton', state);
         },
 
         setMute() {
-            let state = 0;
             if(this.audioElement.muted) {
                 this.audioElement.muted = false;
-                state = 0;
+                this.changeButton('muteButton', 'active');
             } else {
                 this.audioElement.muted = true;
-                state = 1;
+                this.changeButton('muteButton', 'inactive');
             }
-            this.changeButton('muteButton', state);
+            
+        },
+
+        changeButton(name, state) {
+            const buttonIcons = {
+                ppButton: {
+                    icons: {
+                        active: 'media/cuiIMG/pause-solid.svg',
+                        inactive: 'media/cuiIMG/play-solid.svg'
+                    }
+                },
+                muteButton: {
+                    icons: {
+                        active: 'media/cuiIMG/volume-xmark-solid.svg',
+                        inactive: 'media/cuiIMG/volume-high-solid.svg'
+                    }
+                }
+            };
+            
+            const buttonImg = this[name].querySelector('img');
+            buttonImg.setAttribute('src', buttonIcons[name].icons[state]);
+            
         },
 
         initalizeUI() {
@@ -74,27 +92,6 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
         setDisplayTime() {
             this.displayTD.textContent = `${getTimeDuration(this.cdSlider.value)} / ${this.mediaDurationTime}`;
-        },
-
-        // Das muss einfacher gehen ....
-        changeButton(name, state) {
-            console.log(name);
-            const buttonImg = this[name].querySelector('img');
-            if(name == 'ppButton') {
-                if(state == 0) {
-                    buttonImg.setAttribute('src', 'media/cuiIMG/pause-solid.svg');
-                } else {
-                    buttonImg.setAttribute('src', 'media/cuiIMG/play-solid.svg');
-                }
-            } else if(name == 'muteButton') {
-                if(state == 0) {
-                    buttonImg.setAttribute('src', 'media/cuiIMG/volume-xmark-solid.svg');
-                } else {
-                    buttonImg.setAttribute('src', 'media/cuiIMG/volume-high-solid.svg');
-                }
-            } else {
-                console.log('Unbekannte Button-Signatur!');
-            }
         }
 
     }

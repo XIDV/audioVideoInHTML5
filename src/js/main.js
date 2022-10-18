@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.mediaDurationTime = getTimeDuration(mediaDuration);
             this.displayTD.textContent = `0 / ${this.mediaDurationTime}`;
             this.cdSlider.setAttribute('max', mediaDuration);
-            console.log(this.volSlider.value);
             this.audioElement.volume = this.volSlider.value / 100;
         },
 
@@ -112,7 +111,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
     }
 
-    //EL f. cap
+    //EL f. cap ###############################################################
     cap.audioElement.addEventListener('loadedmetadata', e => cap.initalizeUI());
     cap.audioElement.addEventListener('timeupdate', e => cap.updateUI());
     
@@ -125,9 +124,11 @@ document.addEventListener('DOMContentLoaded', dcl => {
 
     cap.volSlider.addEventListener('input', e => cap.setVolume());
 
+    // ########################################################################
 });
 
 
+// Additional Functions
 function getTimeDuration(trackSeconds) {
     const minutes = Math.floor(trackSeconds / 60);
     const seconds = Math.floor(trackSeconds % 60);

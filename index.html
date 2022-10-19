@@ -160,7 +160,7 @@
                     <article class="demoBox" id="bspl1B">
                         <header class="demoBoxHeader">
                             <h3 class="artTitle">Beispiel 1b</h3>
-                            <div class="artSubtitle">Einbindung von Audio mit den Elementen <code>audio</code> und <code>source</code></div>
+                            <div class="artSubtitle">Einbindung von <code>audio</code> und Implementierung eines Custom-Audio-Players (cap)</div>
                         </header>
                         <div class="sandboxContainer">
 
@@ -202,11 +202,37 @@
                             <div class="elementInfo">
                                 <details class="importantInfo">
                                     <summary>
-                                        
+                                        Anstatt wie zuvor, die vom Browser bereitgestellten Bedienelemente (<code>controls</code>) zu verwenden wurde hier ein individuelles UI implementiert. (Konsultieren Sie zum besseren Verständnis die Datei "main.js").
                                     </summary>
+                                    <h4>Erleuterungen zum Custom-Audio-Player</h4>
                                     <p>
-                                        
+                                        Zentraler Punkt ist das selbst definierte Objekt <code>cap</code> welches beim laden der Seite angelegt wird. Dieses Objekte verfügt über die folgdenden Attribute:
                                     </p>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Attribut</th>
+                                                <th>Erleuterungen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>audioElement</code></td>
+                                                <td>Referenz zum HTML-Audio-Element.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>capLegend</code></td>
+                                                <td>Legende f. d. umschließende <code>fieldset</code>-Element.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>mediaDurationTime</code></td>
+                                                <td>Die Länge des Audio-Tracks im Format MM:SS.</td>
+                                            </tr>
+                                            <tr>
+                                                <!-- Mit Erleuterungen fortfahren ... -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </details>
                             </div>
                         </div>

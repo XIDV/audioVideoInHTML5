@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', dcl => {
     console.log('Document is ready ...');
 
+
     // Creating an custom-audio-player-Object (cap) ###########################
     const cap = {
         // Definition der Eigenschaften von cap +++++++++++++++++++++++++++++++
         audioElement: document.querySelector('#bspl1bAudio'),
+        capLegend: document.querySelector('#capLegend'),
         mediaDurationTime: '',
         nowInputCDslider: false,
         
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.displayTD.textContent = `0 / ${this.mediaDurationTime}`;
             this.cdSlider.setAttribute('max', mediaDuration);
             this.audioElement.volume = this.volSlider.value / 100;
+            this.capLegend.textContent = `Now Playing: ${extractCurrentFileName(this.audioElement.currentSrc)}`;
         },
 
         updateUI() {
@@ -134,4 +137,8 @@ function getTimeDuration(trackSeconds) {
     const seconds = Math.floor(trackSeconds % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${minutes}:${returnedSeconds}`;
+}
+
+function extractCurrentFileName(path) {
+    return path.substr(path.lastIndexOf('/') + 1);
 }

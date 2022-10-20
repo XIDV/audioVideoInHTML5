@@ -1,6 +1,6 @@
 table {
     width: 100%;
-    font-size: clamp(1rem, 5vw, 1.5rem);
+    font-size: clamp(.5rem, 2.5vw, 1.5rem);
     border-spacing: 0;
     margin: 0 auto;
 }
@@ -11,14 +11,22 @@ tr {
 
 /* table :not(tr:last-of-type td), */
 tr:not(tr:last-of-type) > td {
-    border-bottom: solid .25rem var(--primary);
+    border-bottom: solid .125rem var(--primary);
 }
 
 th,
 td {
     width: 20%;
-    text-align: center;
+    
     padding: .5rem;
+}
+
+th, td:first-of-type {
+    text-align: center;
+}
+
+table ul {
+    padding: 0;
 }
 
 th {

@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
     }
 
     //EL f. cap ###############################################################
+    cap.initalizeUI();
     cap.audioElement.addEventListener('loadedmetadata', e => cap.initalizeUI());
     cap.audioElement.addEventListener('timeupdate', e => cap.updateUI());
     

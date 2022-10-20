@@ -229,7 +229,105 @@
                                                 <td>Die Länge des Audio-Tracks im Format MM:SS.</td>
                                             </tr>
                                             <tr>
-                                                <!-- Mit Erleuterungen fortfahren ... -->
+                                                <td><code>nowInputCDslider</code></td>
+                                                <td>Eigenschaft welche den Wert <code>true</code> erhält, wenn eine Eingabe über den <code>cdSlider</code> vorgenommen wird.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>ppButton</code></td>
+                                                <td>Der Play-Pause-Button</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>displayTD</code></td>
+                                                <td>Anzeige der Spielzeit und der Länge des Tracks.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>cdSlider</code></td>
+                                                <td>Der Slider mit dem an einen beliebigen Zeitpunkt des Trackgs gesprungen werden kann.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>muteButton</code></td>
+                                                <td>Button zum stumm schalten der Audioausgabe.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>volSlider</code></td>
+                                                <td>Slider zum einstellen der Lautstärke.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>Außerdem verfügt das <code>cap</code>-Objekt über folgende Methoden:</p>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Methode</th>
+                                                <th>Erleuterungen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>playPause()</code></td>
+                                                <td>Starten, bzw. pausieren der Audiowiedergabe. Dynamischer Wechsel des Button-Icon via <code>changeButton()</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setMute()</code></td>
+                                                <td>Stummschalten, bzw. "Entmuten" der Audiowiedergabe und dynaischer Wechsel des des Button-Icon via <code>changeButton()</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>changeButton(name, state)</code></td>
+                                                <td>
+                                                    <p>Im Objekt <code>buttonIcons</code> sind die Pfade zu den spezifischen Icon-Dateien, jeweils f. den aktiven und inaktiven Zustand hinterlegt.</p>
+                                                    <p>Der Methode werden zwei Parameter übergeben. <code>name</code> spezifiziert den Namen des Buttons, <code>state</code> spezifiziert den Zustand.
+                                                    </p>
+                                                    <p>Entsprechend dem Namen wird das zu modifizierende <code>img</code>-Element selektiert. Nachforlgend wird bei diesem das <code>src</code>-Attribut entsprechend dem übergeben Zustand verändert.</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>initializeUI()</code></td>
+                                                <td>
+                                                    <p>Diese Methode dient der Basis-Initialisierung der Elemente des cap.</p>
+                                                    <ul>
+                                                        <li>Initialisierung von <code>mediaDurationTime</code> mit dem Rückgabewert von <code>getTimeDuration()</code></li>
+                                                        <li>Initiale Anzeige von Laufzeit und Audiolänge durch Manipulation des Element-Attributes <code>textContent</code> des cap-Attributes <code>displayTD</code></li>
+                                                        <li></li>
+                                                        <li>Manipulation des Element-Attributes <code>max</code> des cap-Attributes <code>cdSlider</code></li>
+                                                        <li>Einstellen der initialen Lautstärke der Audiowiedergabe. Dies erfolgt hier mit dem 1/100 des Wertes des <code>value</code>-Attributes des cap-Attributes <code>volSlider</code></li>
+                                                        <li>Initiale Anzeige Attributs <code>capLegend</code>. Manipulation des <code>textContent</code>-Attributs mit dem Rückgabewert von <code>extractCurrentFileName()</code></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>updateUI</code></td>
+                                                <td>
+                                                    <p>Steuerung automatischer Veränderungen des cap währen der Wiedergabe. (Aktualisierung von <code>displayTD</code> und <code>cdSlider)</code></p>
+                                                    <p>Diese Aktualisierungen werden nur dann ausgeführt, wenn der Wert von <code>nowInputCDslider</code> den Wert <code>false</code> hat.</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>lockCDslider()</code></td>
+                                                <td>Setzt das Attribut <code>nowInputCDslider</code> auf den Wert <code>true</code>, wenn der User eine Eingabe vornimmt.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setTime()</code></td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Manipulation des Attributes <code>currentTime</code> von <code>audioElement</code> mit dem (vom User eingestellten) <code>value</code>-Wert des <code>cdSlider</code>.</li>
+                                                        <li>Wert von <code>nowInputCDslider</code> wird auf <code>false</code> gesetzt.</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setDisplayTime</code></td>
+                                                <td>Aktualisierung von <code>textContent</code> von <code>displayTD</code>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setVolume()</code></td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Sichern des akutell eingestellten <code>value</code> des <code>volSlider</code> in <code>currentVol</code></li>
+                                                        <li>Dem <code>volume</code>-Attribut des <code>audioElement</code> den Wert von <code>currentVol</code> zuweisen.</li>
+                                                        <li>Wenn der Wert von <code>currentVol</code> gleich <code>0</code> <strong>und</strong> das <code>muted</code>-Attribut von <code>audioElement</code> den Wert <code>false</code> hat, oder wenn ...</li>
+                                                        <li><code>currentVol</code> <strong>größer</strong> <code>0</code> <strong>und</strong> das <code>muted</code>-Attribut von <code>audioElement</code> den Wert <code>true</code> hat, dann rufe <code>setMute()</code> auf.</li>
+                                                    </ul>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

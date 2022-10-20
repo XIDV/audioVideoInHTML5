@@ -1,6 +1,6 @@
 table {
     width: 100%;
-    font-size: clamp(1.25rem, 5vw, 2rem);
+    font-size: clamp(1rem, 5vw, 1.5rem);
     border-spacing: 0;
     margin: 0 auto;
 }

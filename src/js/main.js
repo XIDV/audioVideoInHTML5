@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', dcl => {
             this.mediaDurationTime = getTimeDuration(mediaDuration);
             this.displayTD.textContent = `0 / ${this.mediaDurationTime}`;
             this.cdSlider.setAttribute('max', mediaDuration);
-            this.audioElement.volume = this.volSlider.value / 100;
+            console.log(this.volSlider.value);
+            this.audioElement.volume = this.volSlider.value;
             this.capLegend.textContent = `Now Playing: ${extractCurrentFileName(this.audioElement.currentSrc)}`;
         },
 
@@ -103,9 +104,7 @@ document.addEventListener('DOMContentLoaded', dcl => {
         setVolume() {
             const currentVol = this.volSlider.value;
             this.audioElement.volume = currentVol;
-            if(currentVol == 0 && !this.audioElement.muted) {
-                this.setMute();
-            } else if(currentVol > 0 && this.audioElement.muted) {
+            if((currentVol == 0 && !this.audioElement.muted) || (currentVol > 0 && this.audioElement.muted)) {
                 this.setMute();
             }
         }

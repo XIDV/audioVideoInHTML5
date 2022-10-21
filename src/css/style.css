@@ -101,8 +101,8 @@ h2 {
 }
 
 .sectionContentText tr:nth-child(even) td {
-    border-top: solid .25rem var(--primary);
-    border-bottom: solid .25rem var(--primary);
+    /* border-top: solid .125rem var(--primary); */
+    border-bottom: solid .125rem var(--primary);
 }
 
 .sectionContentText th,
